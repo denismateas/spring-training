@@ -1,8 +1,4 @@
 
-9
-	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
-<
-shop/pom.xml,1\2\127ce03ec0f5429f885be0e31b01e203e95c1a03
 q
 Ashop/src/test/java/ro/msg/learning/shop/ShopApplicationTests.java,9\b\9b6065deec1133dd030e3a0eb4c69448ed44855d
 
