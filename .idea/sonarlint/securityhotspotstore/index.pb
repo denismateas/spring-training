@@ -1,7 +1,23 @@
 
 9
 	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
-?
-shop/.gitignore,7\8\7880a59ab4701c84d1ed8fdb464c591a98bcec6a
 <
 shop/pom.xml,1\2\127ce03ec0f5429f885be0e31b01e203e95c1a03
+q
+Ashop/src/test/java/ro/msg/learning/shop/ShopApplicationTests.java,9\b\9b6065deec1133dd030e3a0eb4c69448ed44855d
+
+Q.idea/sonarlint/securityhotspotstore/1/2/127ce03ec0f5429f885be0e31b01e203e95c1a03,d\a\daf714f9cfd2aa6c2196d307d5e66ae126987569
+
+Q.idea/sonarlint/securityhotspotstore/7/8/7880a59ab4701c84d1ed8fdb464c591a98bcec6a,4\d\4db11907900996404644a12f9d60fd059a7264af
+w
+G.idea/sonarlint/issuestore/7/8/7880a59ab4701c84d1ed8fdb464c591a98bcec6a,e\6\e6899893e1dd76b0641cc6627610a59676e9f975
+
+Q.idea/sonarlint/securityhotspotstore/8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d,1\0\10a03f31c4dce92cb371e761ce9429428bb6c176
+w
+G.idea/sonarlint/issuestore/8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d,b\4\b4a0b63ce8560bbc5de0f9995c20cc861dc2adb3
+S
+#.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
+]
+-.idea/sonarlint/securityhotspotstore/index.pb,8\8\88a9255124c95bdc913197c120a8d560edc59c8e
+w
+G.idea/sonarlint/issuestore/1/2/127ce03ec0f5429f885be0e31b01e203e95c1a03,1\6\16c1772de12304027b9425268e622254e07bd49e
