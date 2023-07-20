@@ -1,6 +1,6 @@
-package repository;
+package ro.msg.learning.shop.repository;
 
-import entity.Product;
+import ro.msg.learning.shop.entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

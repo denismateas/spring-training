@@ -1,7 +1,7 @@
-package needed;
+package ro.msg.learning.shop.needed;
 
-import entity.Location;
-import entity.Product;
+import ro.msg.learning.shop.entity.Location;
+import ro.msg.learning.shop.entity.Product;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -19,10 +19,10 @@ public class StockId implements Serializable {
 
     @ManyToOne
     @JoinColumn(name="product", nullable=false)
-    private transient Product product;
+    private Product product;
 
     @ManyToOne
     @JoinColumn(name="location", nullable=false)
-    private transient Location location;
+    private Location location;
 
 }

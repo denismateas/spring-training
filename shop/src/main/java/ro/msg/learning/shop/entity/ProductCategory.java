@@ -1,4 +1,4 @@
-package entity;
+package ro.msg.learning.shop.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -19,6 +19,6 @@ public class ProductCategory extends BaseEntity {
     private String name;
     private String description;
 
-    @OneToMany(mappedBy = "product")
+    @OneToMany(mappedBy = "productCategory")
     private Set<Product> products;
 }

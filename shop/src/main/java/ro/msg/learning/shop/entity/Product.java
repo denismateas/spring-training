@@ -1,4 +1,4 @@
-package entity;
+package ro.msg.learning.shop.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.Set;
 
 @Entity
@@ -22,14 +23,14 @@ public class Product extends BaseEntity {
     private double weight;
     private String imageUrl;
 
-    @OneToMany(mappedBy = "product")
+    @OneToMany(mappedBy = "orderDetailId.product")
     private Set<OrderDetail> orderDetail;
 
     @ManyToOne
     @JoinColumn(name="productCategory", nullable=false)
     private ProductCategory productCategory;
 
-    @OneToMany(mappedBy = "product")
+    @OneToMany(mappedBy = "stockId.product")
     private Set<Stock> stock;
 
 }

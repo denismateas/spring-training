@@ -1,12 +1,13 @@
-package entity;
+package ro.msg.learning.shop.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import needed.Address;
+import ro.msg.learning.shop.needed.Address;
 
+import java.io.Serializable;
 import java.util.Set;
 
 @Entity
@@ -15,18 +16,16 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name="LOCATION")
-@Embeddable
 public class Location extends BaseEntity {
 
     private String name;
 
-    @Embedded
     private Address address;
 
-    @OneToMany(mappedBy = "location")
+    @OneToMany(mappedBy = "stockId.location")
     private Set<Stock> stock;
 
-    @OneToMany(mappedBy = "location")
+    @OneToMany(mappedBy = "shippedFrom")
     private Set<OrderDetail> orderDetail;
 
 }

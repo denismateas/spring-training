@@ -1,12 +1,13 @@
-package entity;
+package ro.msg.learning.shop.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import needed.Address;
+import ro.msg.learning.shop.needed.Address;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Set;
 
@@ -15,17 +16,16 @@ import java.util.Set;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Embeddable
 @Table(name="ORDERS")
 public class Orders extends BaseEntity {
 
+    @ManyToOne
+    @JoinColumn(name="customer", nullable=false)
     private Customer customer;
     private LocalDateTime createdAt;
-
-    @Embedded
     private Address address;
 
-    @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "orderDetailId.orders")
     private Set<OrderDetail> orderDetail;
 
 

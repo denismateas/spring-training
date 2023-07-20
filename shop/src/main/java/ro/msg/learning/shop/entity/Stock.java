@@ -1,10 +1,10 @@
-package entity;
+package ro.msg.learning.shop.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import needed.StockId;
+import ro.msg.learning.shop.needed.StockId;
 
 @Entity
 @Data
