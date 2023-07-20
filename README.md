@@ -1,2 +1,2 @@
 # spring-training
-online-entity
+online-shop
