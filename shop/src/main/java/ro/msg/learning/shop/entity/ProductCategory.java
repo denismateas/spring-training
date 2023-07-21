@@ -21,4 +21,9 @@ public class ProductCategory extends BaseEntity {
 
     @OneToMany(mappedBy = "productCategory")
     private Set<Product> products;
+
+    public ProductCategory(String name, String description){
+        this.name=name;
+        this.description=description;
+    }
 }
