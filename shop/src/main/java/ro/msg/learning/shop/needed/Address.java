@@ -8,9 +8,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
 @Embeddable
 @NoArgsConstructor
+@AllArgsConstructor
 public class Address {
 
     private String country;

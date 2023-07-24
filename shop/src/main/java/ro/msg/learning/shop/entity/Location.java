@@ -7,7 +7,6 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import ro.msg.learning.shop.needed.Address;
 
-import java.io.Serializable;
 import java.util.Set;
 
 @Entity
@@ -20,6 +19,7 @@ public class Location extends BaseEntity {
 
     private String name;
 
+    @Embedded
     private Address address;
 
     @OneToMany(mappedBy = "stockId.location")

@@ -15,6 +15,6 @@ public class Stock {
 
     @EmbeddedId
     private StockId stockId;
-
     private int quantity;
+
 }

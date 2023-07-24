@@ -1,37 +1,41 @@
 package ro.msg.learning.shop.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ro.msg.learning.shop.entity.Product;
+import ro.msg.learning.shop.repository.ProductRepository;
 
 import java.util.*;
 @Service
 public class ProductServiceImpl implements ProductService {
-    private static final Map<UUID, Product> productRepository = new HashMap<>();
+
+    @Autowired
+    private ProductRepository productRepository;
 
     @Override
     public void createProduct(Product product) {
-        productRepository.put(product.getId(), product);
+        productRepository.save(product);
     }
 
     @Override
     public void updateProduct(UUID id, Product product) {
-        productRepository.remove(id);
+        productRepository.deleteById(id);
         product.setId(id);
-        productRepository.put(id, product);
+        productRepository.save(product);
 
     }
 
     @Override
     public void deleteProduct(UUID id) {
-        productRepository.remove(id);
+        productRepository.deleteById(id);
     }
 
     @Override
     public Product getById(UUID id) {
-        return productRepository.get(id);
+        return productRepository.getReferenceById(id);
     }
     @Override
     public Collection<Product> getProducts() {
-        return productRepository.values();
+        return productRepository.findAll();
     }
 }

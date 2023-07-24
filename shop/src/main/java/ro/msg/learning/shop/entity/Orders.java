@@ -23,7 +23,7 @@ public class Orders extends BaseEntity {
     @JoinColumn(name="customer", nullable=false)
     private Customer customer;
     private LocalDateTime createdAt;
-    private Address address;
+    private transient Address address;
 
     @OneToMany(mappedBy = "orderDetailId.orders")
     private Set<OrderDetail> orderDetail;
