@@ -3,6 +3,7 @@ package ro.msg.learning.shop.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ro.msg.learning.shop.entity.*;
+import ro.msg.learning.shop.needed.OrdersCreationError;
 import ro.msg.learning.shop.repository.LocationRepository;
 import ro.msg.learning.shop.repository.OrdersRepository;
 
@@ -15,11 +16,6 @@ public class OrdersServiceImpl implements OrdersService {
 
     @Autowired
     LocationRepository locationRepository;
-
-    @Override
-    public void createOrders(Orders orders) {
-        ordersRepository.save(orders);
-    }
 
     @Override
     public void updateOrders(UUID id, Orders orders) {
@@ -83,15 +79,25 @@ public class OrdersServiceImpl implements OrdersService {
         return location;
     }
 
-    public Location verifyLocations(Orders orders, Location location){
+    public Location verifyLocations(Orders orders){
         List<Location> locations = locationRepository.findAll();
         for(Location loc : locations){
             if(verifyStock(orders, loc)!=null) {
-               // for(Stock stock : loc.getStock())
-                    return location;
+                return loc;
             }
         }
         return null;
+    }
+
+    @Override
+    public void createOrders(Orders orders) throws OrdersCreationError {
+        if(verifyLocations(orders)!=null) {
+            ordersRepository.save(orders);
+            Set<OrderDetail> orderDetails = new HashSet<>(orders.getOrderDetail());
+            orders.setOrderDetail(orderDetails);
+            ordersRepository.save(orders);
+        }
+        else throw new OrdersCreationError("No location found");
     }
 
 }

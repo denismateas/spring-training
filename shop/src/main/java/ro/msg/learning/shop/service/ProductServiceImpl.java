@@ -2,6 +2,8 @@ package ro.msg.learning.shop.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import ro.msg.learning.shop.entity.Product;
 import ro.msg.learning.shop.repository.ProductRepository;
 
@@ -18,11 +20,23 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public void updateProduct(UUID id, Product product) {
-        productRepository.deleteById(id);
-        product.setId(id);
-        productRepository.save(product);
-
+    public Product updateProduct(@PathVariable UUID id, @RequestBody Product newProduct) {
+        return productRepository.findById(id)
+                .map(product -> {
+                    product.setName(newProduct.getName());
+                    product.setProductCategory(newProduct.getProductCategory());
+                    product.setPrice(newProduct.getPrice());
+                    product.setWeight(newProduct.getWeight());
+                    product.setImageUrl(newProduct.getImageUrl());
+                    product.setDescription(newProduct.getDescription());
+                    product.setStock(newProduct.getStock());
+                    product.setOrderDetail(newProduct.getOrderDetail());
+                    return productRepository.save(newProduct);
+                })
+                .orElseGet(()->{
+                    newProduct.setId(id);
+                    return productRepository.save(newProduct);
+                });
     }
 
     @Override

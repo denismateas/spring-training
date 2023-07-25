@@ -13,7 +13,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name="ORDER_DETAIL")
-public class OrderDetail implements Serializable {
+public class OrderDetail {
 
     @EmbeddedId
     private OrderDetailId orderDetailId;

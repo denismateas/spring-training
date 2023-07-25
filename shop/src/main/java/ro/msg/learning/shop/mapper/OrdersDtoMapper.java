@@ -30,7 +30,8 @@ public interface OrdersDtoMapper {
     @AfterMapping
     default void mapAfterMapping(OrdersDTO ordersDTO, @MappingTarget Orders orders)
     {
-        orders.getOrderDetail().add((OrderDetail)ordersDTO.getProductList());
+        if(orders.getOrderDetail() !=null)
+            orders.getOrderDetail().add((OrderDetail)ordersDTO.getProductList());
     }
 
 

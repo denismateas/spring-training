@@ -21,6 +21,12 @@ public class ProductServiceController {
         this.productService = productService;
     }
 
+    @PostMapping
+    public ResponseEntity<Object> createProduct(@RequestBody ProductDTO productDto, ProductCategory productCategory) {
+        productService.createProduct(ProductDtoMapper.INSTANCE.productDtoToProduct(productDto));
+        return new ResponseEntity<>("Product created successfully", HttpStatus.CREATED);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<Object> getById(UUID id){
         return new ResponseEntity<>(ProductDtoMapper.INSTANCE.productToProductDto(productService.getById(id)), HttpStatus.OK);
@@ -43,9 +49,5 @@ public class ProductServiceController {
         productService.deleteProduct(id);
         return new ResponseEntity<>("Product deleted successfully", HttpStatus.OK);
     }
-    @PostMapping(value = "/post")
-    public ResponseEntity<Object> createProduct(@RequestBody ProductDTO productDto, ProductCategory productCategory) {
-        productService.createProduct(ProductDtoMapper.INSTANCE.productDtoToProduct(productDto));
-        return new ResponseEntity<>("Product created successfully", HttpStatus.CREATED);
-    }
+
 }

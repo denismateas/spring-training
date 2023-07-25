@@ -26,8 +26,8 @@ public class Product extends BaseEntity {
     @OneToMany(mappedBy = "orderDetailId.product")
     private Set<OrderDetail> orderDetail;
 
-    @ManyToOne
-    @JoinColumn(name="productCategory", nullable=false)
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="productCategory")
     private ProductCategory productCategory;
 
     @OneToMany(mappedBy = "stockId.product")
