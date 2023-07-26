@@ -22,10 +22,10 @@ public class Location extends BaseEntity {
     @Embedded
     private Address address;
 
-    @OneToMany(mappedBy = "stockId.location")
+    @OneToMany(mappedBy = "stockId.location", cascade=CascadeType.ALL)
     private Set<Stock> stock;
 
-    @OneToMany(mappedBy = "shippedFrom")
+    @OneToMany(mappedBy = "shippedFrom", cascade = CascadeType.ALL)
     private Set<OrderDetail> orderDetail;
 
 }

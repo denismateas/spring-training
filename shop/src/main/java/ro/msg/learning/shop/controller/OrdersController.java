@@ -9,8 +9,7 @@ import ro.msg.learning.shop.mapper.OrdersDtoMapper;
 import ro.msg.learning.shop.needed.OrdersCreationError;
 import ro.msg.learning.shop.service.OrdersService;
 
-import java.util.ArrayList;
-import java.util.Collection;
+import java.util.*;
 
 @RequestMapping(value = "/orders")
 @RestController
@@ -23,9 +22,11 @@ public class OrdersController {
     }
 
     @PostMapping
-    public ResponseEntity<Object> createOrders(OrdersDTO ordersDTO) throws OrdersCreationError {
-        ordersService.createOrders(OrdersDtoMapper.INSTANCE.ordersDtoToOrders(ordersDTO));
-        return new ResponseEntity<>("Orders created successfully", HttpStatus.CREATED);
+    public OrdersDTO createOrders(@RequestBody OrdersDTO ordersDTO) throws OrdersCreationError {
+        final Orders order = ordersService.createOrders(OrdersDtoMapper.INSTANCE.ordersDtoToOrders(ordersDTO),
+                ordersDTO.getProductList());
+
+        return OrdersDtoMapper.INSTANCE.ordersToOrdersDto(order);
     }
     @GetMapping
     public ResponseEntity<Object> getOrders(){

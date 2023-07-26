@@ -1,15 +1,14 @@
 package ro.msg.learning.shop.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import ro.msg.learning.shop.needed.OrderDetailId;
 
 import java.io.Serializable;
 
 @Entity
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name="ORDER_DETAIL")
@@ -20,8 +19,8 @@ public class OrderDetail {
 
     private int quantity;
 
-    @ManyToOne
-    @JoinColumn(name="location", nullable=false)
+    @ManyToOne()
+    @JoinColumn(name="location")
     private Location shippedFrom;
 
 

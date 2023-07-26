@@ -18,11 +18,11 @@ import java.io.Serializable;
 public class StockId implements Serializable {
 
     @ManyToOne
-    @JoinColumn(name="product", nullable=false)
+    @JoinColumn(name="product_id", nullable=false)
     private Product product;
 
     @ManyToOne
-    @JoinColumn(name="location", nullable=false)
+    @JoinColumn(name="location_id", nullable=false)
     private Location location;
 
 }
